@@ -18,6 +18,11 @@ Plug 'mattn/vim-goimports'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 't9md/vim-quickhl'
+" for lightline
+Plug 'itchyny/lightline.vim'
+" for markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
 call plug#end()
 
 set background=dark
@@ -27,3 +32,20 @@ syntax on
 
 " 各種設定の読み込み
 call map(sort(split(globpath(&runtimepath, 'config/*.vim'))), {->[execute('exec "so" v:val')]})
+
+set laststatus=2
+"set statusline=%-(%f%m%h%q%r%w%)%=%{&ff}\|%{&fenc}\ %y%l,%c\ %0P
+"set statusline=%F%m%h%w\ %<[ENC=%{&fenc!=''?&fenc:&enc}]\ [FMT=%{&ff}]\ [TYPE=%Y]\ %=[CODE=0x%02B]\ [POS=%l/%L(%02v)]
+
+" for vim-markdown
+let g:vim_markdown_folding_disabled = 1
+set nofoldenable
+
+" 長い行の解析上限
+set synmaxcol=200
+
+" マクロの途中で画面を西行がしない
+set lazyredraw
+
+" hjkl等の長押しが早くなる
+set ttyfast
