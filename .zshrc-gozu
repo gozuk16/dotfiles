@@ -1,0 +1,22 @@
+# setenv
+EDITOR=vi
+VISUAL=vi
+
+# Go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# 1password-cli
+#eval $(op signin my)
+
+# ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# jump
+eval "$(jump shell)"
+
+# fzf
+set rtp+=/usr/local/opt/fzf
