@@ -1,12 +1,10 @@
+" plugin
 call plug#begin('~/.vim/plugged')
 " color scheme
 Plug 'w0ng/vim-hybrid'
-" plugin
 " for NERDTree
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-" for ctrlp
-Plug 'ctrlpvim/ctrlp.vim'
 " for vim-lsp
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -23,6 +21,14 @@ Plug 'itchyny/lightline.vim'
 " for markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'godlygeek/tabular'
+" for js/vue.js
+Plug 'posva/vim-vue'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/yajs.vim'
+" for fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" for SQL Formatter
+Plug 'mattn/vim-sqlfmt'
 call plug#end()
 
 set background=dark
@@ -49,3 +55,10 @@ set lazyredraw
 
 " hjkl等の長押しが早くなる
 set ttyfast
+
+" ソースコード用
+set number
+"set cursorline
+hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE
+
+let g:goimports_simplify = 1  " 保存時に`gofmt -s`を実行する
