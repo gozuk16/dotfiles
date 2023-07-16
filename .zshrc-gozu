@@ -3,20 +3,22 @@ EDITOR=vi
 VISUAL=vi
 
 # Go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+#export GOPATH=$HOME/go
+#export PATH=$PATH:$GOPATH/bin
 
 # fzf
+set rtp+=/opt/homebrew/opt/fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# 1password-cli
-#eval $(op signin my)
 
 # ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # jump
-eval "$(jump shell)"
+eval "$(jump shell zsh)"
 
-# fzf
-set rtp+=/usr/local/opt/fzf
+# 1password-cli
+#eval $(op signin my)
+
+# for 1password ssh-agent
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+

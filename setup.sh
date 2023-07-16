@@ -2,7 +2,7 @@
  
 SOURCE_DIR=`pwd`
 DESTINATION_DIR=~
-DOTFILES=".zshrc-gozu .gitconfig .gitignore_global .vimrc"
+DOTFILES=".zshrc-gozu .gitconfig .gitignore_global .vimrc .vim"
 
 for F in $DOTFILES; do
 	SF=$SOURCE_DIR/$F

@@ -3,3 +3,4 @@
 	email = gozuk16@gmail.com
 [core]
 	editor = vi
+	excludesfile = /Users/gozu/.gitignore_global

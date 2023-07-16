@@ -10,11 +10,15 @@ $ cd dotfiles
 $ ./setup.sh
 ```
 
-for .gitconfig
+.zshrcに以下を追加
+```
+# Customize to your needs...
+[[ ! -f ~/.zshrc-gozu ]] || source ~/.zshrc-gozu
+```
 
+## 注意
+
+settup.shで以下を実行したら、.gitconfigをコミットしないように.gitignoreに.gitconfigを追加しておく
 ```
 $ git config --global core.excludesfile ~/.gitignore_global
 ```
-
-絶対パスに変換して.gitconfigに入るのでコマンド実行が必要
-
