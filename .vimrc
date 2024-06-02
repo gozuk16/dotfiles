@@ -26,7 +26,9 @@ Plug 'posva/vim-vue'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/yajs.vim'
 " for fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " for SQL Formatter
 Plug 'mattn/vim-sqlfmt'
 call plug#end()
@@ -35,6 +37,7 @@ set background=dark
 let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
 syntax on
+filetype plugin indent on
 
 " 各種設定の読み込み
 call map(sort(split(globpath(&runtimepath, 'config/*.vim'))), {->[execute('exec "so" v:val')]})
@@ -50,7 +53,7 @@ set nofoldenable
 " 長い行の解析上限
 set synmaxcol=200
 
-" マクロの途中で画面を西行がしない
+" マクロの途中で画面を再描画がしない
 set lazyredraw
 
 " hjkl等の長押しが早くなる
@@ -61,4 +64,36 @@ set number
 "set cursorline
 hi CursorLineNr term=bold cterm=NONE ctermfg=228 ctermbg=NONE
 
-let g:goimports_simplify = 1  " 保存時に`gofmt -s`を実行する
+" タブ文字幅
+set tabstop=4
+" 自動インデントの幅
+set shiftwidth=4
+" タブ・改行・行末の表示
+set list listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+
+" enable simplify filter
+let g:goimports_simplify = 1
+
+" fzf
+set rtp+=/opt/homebrew/opt/fzf
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+nnoremap <Leader>f :Files<CR>
+nnoremap <Leader>s :Rg<CR>
+nnoremap <Leader>b :Buffer<CR>
+
+" sqlfmt
+let g:sqlfmt_program = "sqlformat --comma_first true -r -k upper -o %s -"
+
+" マウスの使用を有効にする
+set mouse=a
+" システムのクリップボードを使用する
+set clipboard=unnamedplus
