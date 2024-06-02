@@ -2,16 +2,15 @@
 EDITOR=vi
 VISUAL=vi
 
+# path
+#export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 # Go
-#export GOPATH=$HOME/go
-#export PATH=$PATH:$GOPATH/bin
+export GOPATH=~/go
+export PATH="$GOPATH/bin:$PATH"
 
-# fzf
-set rtp+=/opt/homebrew/opt/fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# ruby
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+# for sqlite3
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
 # jump
 eval "$(jump shell zsh)"
@@ -22,3 +21,14 @@ eval "$(jump shell zsh)"
 # for 1password ssh-agent
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
+# XDG Base Directory Specification
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_STATE_HOME="$HOME"/.local/state
+
+# tmux
+alias tmux-source='tmux source-file $XDG_CONFIG_HOME/tmux/tmux.conf'
+
+# neovim
+alias vi='nvim'
