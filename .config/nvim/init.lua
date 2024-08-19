@@ -14,4 +14,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 require('plugins')
 
+-- yankをクリップボードへ入れる
+vim.opt.clipboard:append{'unnamedplus'}
+
+-- 行番号表示
+vim.opt.number = true
 
