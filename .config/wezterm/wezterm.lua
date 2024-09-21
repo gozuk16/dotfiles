@@ -2,7 +2,7 @@ local wezterm = require 'wezterm';
 local config = {}
 
 -- 背景透過
-config.window_background_opacity = 0.85
+--config.window_background_opacity = 0.85
 
 -- IME
 config.use_ime = true
@@ -36,6 +36,22 @@ config.keys = {
   { key = 'l', mods = 'CMD', action = wezterm.action( { ActivatePaneDirection = 'Right' } ), },
   -- コマンドのキャンセルに CTRL + C を割り当てる
   --{ key = 'c', mods = 'CTRL', action = wezterm.action( { SendString = "\x03" } ), },
+}
+
+-- マウスホイールの設定
+mouse_bindings = {
+  -- スクロールアップをスクロールバッファの一部として動作させる
+  {
+    event = { Down = { streak = 1, button = "WheelUp" } },
+    mods = "NONE",
+    action = wezterm.action { ScrollByPage = -0.5 }, -- スクロールアップ
+  },
+  -- スクロールダウンをスクロールバッファの一部として動作させる
+  {
+    event = { Down = { streak = 1, button = "WheelDown" } },
+    mods = "NONE",
+    action = wezterm.action { ScrollByPage = 0.5 }, -- スクロールダウン
+  },
 }
 
 return config
