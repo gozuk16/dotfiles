@@ -1,4 +1,6 @@
 require('lazy').setup({
-  -- tokyonight
+  -- color scheme
   "folke/tokyonight.nvim",
+  "jacoborus/tender.vim",
+  "neanias/everforest-nvim",
 })
