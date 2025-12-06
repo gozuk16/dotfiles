@@ -15,3 +15,7 @@ vim.opt.completeopt = { "menuone", "noselect", "noinsert", "preview" }
 
 -- keymap
 require("keymaps")
+
+-- インデント
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
