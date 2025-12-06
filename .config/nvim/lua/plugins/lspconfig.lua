@@ -22,6 +22,7 @@ return {
 						capabilities = capabilities,
 						autostart = true,
 					}
+					vim.lsp.enable(server_name)
 				end,
 			}
 		})
