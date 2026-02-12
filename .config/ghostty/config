@@ -1,0 +1,34 @@
+# font
+font-family = "Hack Nerd Font Mono"
+font-size = 12
+## リガチャを無効化
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
+#theme = tokyonight_night
+
+macos-titlebar-style = tabs
+
+copy-on-select = clipboard
+
+quick-terminal-position = "top"
+quick-terminal-screen = "main"
+quick-terminal-animation-duration = 0.3
+# keybind = "global:cmd+shift+t=toggle_quick_terminal"
+keybind = "global:f12=toggle_quick_terminal"
+
+
+# Ctrl+C - Interrupt (Cancel)
+#keybind = ctrl+physical:c=text:\x03
+
+# パネル分割
+keybind = super+s=new_split:down
+keybind = shift+super+h=new_split:right
+
+# パネル移動
+keybind = super+h=goto_split:left
+keybind = super+j=goto_split:bottom
+keybind = super+k=goto_split:top
+keybind = super+l=goto_split:right
+keybind = shift+enter=text:\x1b\r
